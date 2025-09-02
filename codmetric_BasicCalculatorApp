@@ -1,0 +1,63 @@
+def add(a, b):
+    return a + b
+
+def sub(a, b):
+    return a - b
+
+def mul(a, b):
+    return a * b 
+
+def div(a, b):
+    return a / b
+
+def mod(a, b):
+    return a % b
+
+try:
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+except ValueError:
+    print("Invalid input, Please enter numeric values only.")
+    exit()
+
+while True:
+    print("""
+    === CALCULATOR ===
+        1. Addition
+        2. Subtraction
+        3. Multiplication
+        4. Division
+        5. Modulus
+        6. Exit
+    """)
+    
+    try:
+        ch = int(input("Enter your calculation mode: "))
+    except ValueError:
+        print("Invalid choice, Please enter a number between 1 - 6")
+        continue
+
+    try:
+        if ch == 1:
+            print(f"\nAddition: {add(num1, num2)}")
+            
+        elif ch == 2:
+            print(f"\nSubtraction: {sub(num1, num2)}")
+            
+        elif ch == 3:
+            print(f"\nMultiplication: {mul(num1, num2)}")
+            
+        elif ch == 4:
+            print(f"\nDivision: {div(num1, num2)}")
+            
+        elif ch == 5:
+            print(f"\nModulus: {mod(num1, num2)}")
+            
+        elif ch == 6:
+            print("Exiting the calculator...")
+            break
+        else:
+            print("Invalid choice, Please enter a number between 1 - 6")
+            
+    except ZeroDivisionError:
+        print("Error: Division or modulus by zero is not allowed")

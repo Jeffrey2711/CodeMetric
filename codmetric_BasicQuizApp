@@ -1,0 +1,44 @@
+# Basic Quiz App
+
+qs = [
+    {
+        "q": "What is the capital of India?",
+        "opts": ["A) Delhi", "B) Mumbai", "C) Kolkata", "D) Chennai"],
+        "ans": "A"
+    },
+    {
+        "q": "2 + 2 = ?",
+        "opts": ["A) 3", "B) 4", "C) 5", "D) 6"],
+        "ans": "B"
+    },
+    {
+        "q": "Which is the largest planet?",
+        "opts": ["A) Earth", "B) Mars", "C) Jupiter", "D) Venus"],
+        "ans": "C"
+    }
+]
+
+def quiz():
+    sc = 0
+    for i, item in enumerate(qs, start=1):
+        print(f"\nQ{i}. {item['q']}")
+        for o in item["opts"]:
+            print(o)
+        
+        ans = input("Your answer (A/B/C/D): ").strip().upper()
+        
+        if ans == item["ans"]:
+            print("Correct!")
+            sc += 1
+        else:
+            print(f"Wrong! Right answer: {item['ans']}")
+    
+    print("\nQuiz Finished")
+    print(f"Score: {sc}/{len(qs)}")
+
+while True:
+    quiz()
+    again = input("\nTry again? (y/n): ").lower()
+    if again != "y":
+        print("Goodbye")
+        break
